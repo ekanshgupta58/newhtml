@@ -1,0 +1,79 @@
+// Create the main coral-tag element
+const coralTag = document.createElement('coral-tag');
+coralTag.setAttribute('closable', '');
+coralTag.className = '_coral-Tags-item _coral-Tags-item--deletable';
+coralTag.setAttribute('value', 'properties:style/color');
+coralTag.setAttribute('size', 'S');
+coralTag.setAttribute('role', 'row');
+coralTag.setAttribute('aria-labelledby', 'coral-id-960');
+coralTag.setAttribute('tabindex', '0');
+
+// Create the coral-tag-label element
+const coralTagLabel = document.createElement('coral-tag-label');
+coralTagLabel.className = '_coral-Tags-itemLabel';
+coralTagLabel.setAttribute('role', 'rowheader');
+coralTagLabel.id = 'coral-id-960';
+coralTagLabel.textContent = 'Asset Properties : Style / Color';
+
+// Append the label to the coral-tag element
+coralTag.appendChild(coralTagLabel);
+
+// Create the hidden input element
+const input = document.createElement('input');
+input.type = 'hidden';
+input.setAttribute('handle', 'input');
+input.name = './jcr:content/metadata/cq:tags';
+input.value = 'properties:style/color';
+
+// Append the input to the coral-tag element
+coralTag.appendChild(input);
+
+// Create the span for the button
+const buttonSpan = document.createElement('span');
+buttonSpan.setAttribute('handle', 'buttonCell');
+buttonSpan.setAttribute('role', 'gridcell');
+
+// Create the button element
+const button = document.createElement('button');
+button.setAttribute('is', 'coral-button');
+button.setAttribute('tracking', 'off');
+button.setAttribute('handle', 'button');
+button.type = 'button';
+button.className = '_coral-ClearButton _coral-ClearButton--small _coral-Tags-item-removeButton';
+button.title = 'Remove';
+button.setAttribute('tabindex', '0');
+button.setAttribute('coral-close', '');
+button.setAttribute('aria-label', 'Remove: Asset Properties : Style / Color');
+button.setAttribute('size', 'M');
+
+// Create the SVG for the button
+const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+svg.setAttribute('focusable', 'false');
+svg.setAttribute('aria-hidden', 'true');
+svg.className = '_coral-Icon--svg _coral-Icon _coral-UIIcon-CrossSmall';
+
+// Create the use element for the SVG
+const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-CrossSmall');
+
+// Append the use element to the SVG
+svg.appendChild(use);
+
+// Append the SVG to the button
+button.appendChild(svg);
+
+// Create the coral-button-label element
+const coralButtonLabel = document.createElement('coral-button-label');
+coralButtonLabel.setAttribute('handle', 'buttonLabel');
+
+// Append the coral-button-label to the button
+button.appendChild(coralButtonLabel);
+
+// Append the button to the span
+buttonSpan.appendChild(button);
+
+// Append the span to the coral-tag element
+coralTag.appendChild(buttonSpan);
+
+// Now you can append the coral-tag to any desired parent element in the DOM
+document.body.appendChild(coralTag); // For example, appending to the body
